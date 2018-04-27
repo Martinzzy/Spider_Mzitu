@@ -20,8 +20,8 @@ def get_Image(url_list):
         data = etree.HTML(html)
         page_num = data.xpath('//div[@class="pagenavi"]/a[last()-1]/span/text()')[0]
         title = data.xpath('//h2[@class="main-title"]/text()')[0]
-        #这个地方有待完善。
-        os.mkdir(title)
+        if not os.path.exists(title):
+            os.mkdir(title)
         for image_num in range(1,int(page_num)+1):
             headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.117 Safari/537.36'}
             if image_num == 1:
