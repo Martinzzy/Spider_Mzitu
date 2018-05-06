@@ -77,9 +77,11 @@ if __name__ == '__main__':
         elif i == 2:
             url = 'http://www.mzitu.com/mm/page/2/'
             headers.update({'Referer':'http://www.mzitu.com/mm/'})
-            get_Imageurl(url,headers)
+            url_list = get_Imageurl(url,headers)
+            get_Image(url_list)
         else:
             url = 'http://www.mzitu.com/mm/page/{0}/'.format(i)
             referer = 'http://www.mzitu.com/mm/page/{0}/'.format(i-1)
             headers.update({'Referer':referer})
-            get_Imageurl(url,headers)
+            url_list = get_Imageurl(url,headers)
+            get_Image(url_list)
